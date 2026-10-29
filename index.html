@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#130f17">
+<title>地雷恋愛シミュレーター｜5分版</title>
+<style>
+:root{--bg:#130f17;--panel:#1e1723;--panel2:#2a2030;--pink:#ff83bf;--pink2:#ffc1e0;--text:#fff2fa;--muted:#b9a7bb;--line:#4b354e}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#321c35,#130f17 65%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--pink2);outline-offset:3px}
+.wrap{width:min(100%,650px);margin:auto;padding:16px 12px 30px}.brand{display:flex;align-items:center;gap:10px;margin:5px 0 15px}.logo{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,#ff83bf,#9b4b9c);display:grid;place-items:center;font-size:22px}.brand h1{font-size:15px;margin:0}.brand p{font-size:10px;color:var(--muted);margin:3px 0 0}.pill{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:6px 8px;color:var(--pink2);font-size:10px}
+.panel{background:#1c1620;border:1px solid var(--line);border-radius:21px;overflow:hidden;box-shadow:0 16px 48px #0003}.intro{padding:23px}.eyebrow{font-size:10px;letter-spacing:.15em;font-weight:800;color:var(--pink)}h2{font-size:clamp(28px,7vw,39px);line-height:1.25;margin:12px 0}.pink{color:var(--pink)}.intro p{font-size:13px;line-height:1.9;color:#d0c0d1}.tags{display:flex;flex-wrap:wrap;gap:6px;margin:15px 0}.tag{border:1px solid #64445f;border-radius:999px;padding:6px 9px;color:#efc4e0;font-size:10px}.primary,.secondary{border-radius:13px;padding:13px 15px;font-weight:750;border:0}.primary{background:linear-gradient(100deg,#ff83bf,#d75aa8);color:#2b1022}.secondary{background:#302437;color:var(--text);border:1px solid var(--line)}.full{width:100%}.note{font-size:10px!important;color:#9d8ba0!important;line-height:1.7!important}.chathead{display:flex;align-items:center;gap:10px;padding:13px 15px;background:#241b29;border-bottom:1px solid var(--line)}.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f8b4d7,#805080);display:grid;place-items:center;font-size:20px}.contact{flex:1}.contact b{display:block;font-size:13px}.contact small{color:#9be2c3;font-size:10px}.progressbox{padding:10px 14px;background:#19131c}.progresstext{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-bottom:6px}.track{height:4px;background:#433145;border-radius:5px;overflow:hidden}.track div{height:100%;width:0;background:var(--pink);transition:width .2s}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:9px 12px 12px;background:#19131c;border-bottom:1px solid var(--line)}.stat{background:#2a2030;border-radius:9px;padding:7px}.stat small{display:block;font-size:9px;color:var(--muted);margin-bottom:5px}.bar{height:4px;background:#49364c;border-radius:5px;overflow:hidden}.bar i{display:block;height:100%;background:var(--pink);width:50%;transition:width .2s}.val{font-size:10px;text-align:right;display:block;margin-top:3px}.chat{padding:16px 12px;min-height:220px;max-height:35vh;overflow:auto;background:#17121a}.day{text-align:center;color:#8e7c93;font-size:10px;margin:0 0 15px}.rowmsg{display:flex;gap:7px;align-items:flex-end;margin:11px 0}.rowmsg.me{justify-content:flex-end}.miniavatar{width:24px;height:24px;border-radius:50%;background:#70476d;display:grid;place-items:center;font-size:12px;flex-shrink:0}.bubble{max-width:83%;padding:10px 12px;border-radius:14px;font-size:12px;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere}.them .bubble{background:#2c2331;border:1px solid #403044;border-bottom-left-radius:4px}.me .bubble{background:#b84e90;border-bottom-right-radius:4px}.sys{text-align:center;color:#a695ac;font-size:10px;background:#251c2a;border:1px solid #3c2b40;border-radius:99px;padding:6px 10px;margin:14px auto;width:max-content;max-width:100%}.event{padding:17px 14px 19px;border-top:1px solid var(--line)}.chapter{color:var(--pink);font-size:10px;letter-spacing:.1em;font-weight:bold}.event h3{font-size:17px;margin:7px 0}.event p{color:#c6b6c9;font-size:12px;line-height:1.8}.choices{display:grid;gap:8px;margin-top:13px}.choice{display:flex;align-items:center;gap:9px;text-align:left;width:100%;border:1px solid #4a354d;background:#2a2030;color:var(--text);border-radius:12px;padding:11px;font-size:12px;line-height:1.65}.choice:hover{border-color:var(--pink)}.num{width:23px;height:23px;flex-shrink:0;display:grid;place-items:center;background:#473149;color:var(--pink2);border-radius:7px;font-size:10px}.next{margin-top:12px;width:100%}.result{padding:24px 18px;text-align:center}.resulticon{font-size:46px}.result h2{font-size:26px;color:var(--pink2)}.result p{font-size:13px;color:#d1c1d2;line-height:1.9}.report{text-align:left;background:#281f2e;border:1px solid #4b354e;border-radius:14px;padding:13px;margin:15px 0}.report h3{font-size:11px;color:var(--pink2)}.reportgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.reportgrid div{background:#1b151f;padding:9px;border-radius:9px}.reportgrid small{display:block;color:var(--muted);font-size:10px}.reportgrid b{font-size:17px}.share{white-space:pre-wrap;text-align:left;background:#130f17;border:1px dashed #60405e;border-radius:10px;padding:12px;font-size:12px;color:#f7e9f4;line-height:1.8}.buttons{display:flex;gap:8px;margin-top:10px}.buttons button{flex:1}.foot{text-align:center;color:#85768b;font-size:10px;line-height:1.7;margin-top:13px}.hidden{display:none!important}@media(max-width:370px){.stats{grid-template-columns:repeat(2,1fr)}.intro{padding:18px}.chat{min-height:190px}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="brand"><div class="logo">♡</div><div><h1>地雷恋愛シミュレーター</h1><p>LOVE / TRUST / OBSESSION</p></div><div class="pill">5 MIN DEMO</div></header>
+<main class="panel">
+<section class="intro" id="intro">
+<div class="eyebrow">A CHAT-BASED LOVE SIMULATION</div><h2>好きって、<br><span class="pink">どこから怖い？</span></h2>
+<p>恋人とのLINEを通して、少しずつ変わっていく関係を体験しよう。何気ない返事が、二人の未来を変えるかもしれない。</p>
+<div class="tags"><span class="tag">全6イベント</span><span class="tag">複数エンディング</span><span class="tag">約5分</span><span class="tag">ログイン不要</span></div>
+<p class="note">信頼度・依存度・不安度・境界線が選択によって変化します。正解はひとつではありません。</p>
+<button class="primary full" id="start">恋愛をはじめる ♡</button>
+</section>
+<section id="game" class="hidden">
+<div class="chathead"><div class="avatar">🖤</div><div class="contact"><b>みお</b><small id="online">オンライン</small></div><span>•••</span></div>
+<div class="progressbox"><div class="progresstext"><span id="chapter">DAY 01</span><span id="progressText">0 / 6</span></div><div class="track"><div id="progressBar"></div></div></div>
+<div class="stats">
+<div class="stat"><small>信頼度</small><div class="bar"><i id="trustBar"></i></div><span class="val" id="trustVal">60</span></div>
+<div class="stat"><small>依存度</small><div class="bar"><i id="depBar"></i></div><span class="val" id="depVal">20</span></div>
+<div class="stat"><small>不安度</small><div class="bar"><i id="anxBar"></i></div><span class="val" id="anxVal">25</span></div>
+<div class="stat"><small>境界線</small><div class="bar"><i id="boundBar"></i></div><span class="val" id="boundVal">60</span></div>
+</div>
+<div class="chat" id="chat" aria-live="polite"><div class="day" id="day">10月01日</div></div><div class="event" id="event"></div>
+</section>
+<section id="result" class="result hidden"><div class="eyebrow">YOUR LOVE ENDING</div><div class="resulticon" id="icon">♡</div><h2 id="title"></h2><p id="desc"></p><div class="report"><h3>RELATIONSHIP REPORT</h3><div class="reportgrid" id="report"></div></div><p class="note">これはゲーム内の選択によるフィクションの判定です。現実のあなたの人格や恋愛の価値を決めるものではありません。</p><div class="share" id="share"></div><div class="buttons"><button class="primary" id="copy">結果をコピー</button><button class="secondary" id="retry">もう一度</button></div><p class="foot" id="copyStatus"></p></section>
+</main><p class="foot">MINA STUDIO · フィクションの恋愛ゲーム</p></div>
+<script>
+const E=[
+{day:"DAY 01 / 付き合って1週間",title:"返信がちょっと遅い。",desc:"既読がついてから3時間。SNSは更新されている。やっと、みおからメッセージが届いた。",chat:[["them","ごめん、友達と話してた！返信遅くなった🙏"]],c:[
+["「おかえり！楽しかった？」","うん、楽しかった！そう聞いてくれるの嬉しい",{trust:6,dep:-3,anx:-5,bound:4}],
+["「SNS更新してたよね？」","え、うん……それはそうだけど",{trust:-3,dep:4,anx:8,bound:-5}],
+["自分も返信を遅らせる","あれ、忙しいのかな？",{trust:-1,dep:2,anx:3,bound:-1}],
+["「嫌われたかと思った」","嫌いになってないよ。そんなに心配しないで",{trust:0,dep:7,anx:5,bound:-2}]]},
+{day:"DAY 02 / 予定変更",title:"週末、会えなくなった。",desc:"楽しみにしていたデートの日。みおから予定を変えたいと連絡がきた。",chat:[["them","ごめん、土曜ちょっと一人で休みたいかも……"]],c:[
+["「了解！ゆっくり休んでね」","ありがとう、次会える日決めようね！",{trust:6,dep:-3,anx:-4,bound:7}],
+["「俺といるの疲れた？」","そういう意味じゃないよ。ちょっと疲れてるだけ",{trust:-2,dep:5,anx:7,bound:-3}],
+["「じゃあいつなら会える？」","来週の日曜なら空いてるよ",{trust:1,dep:2,anx:2,bound:0}],
+["「わかった」とだけ返す","……怒ってる？",{trust:-1,dep:2,anx:5,bound:0}]]},
+{day:"DAY 03 / 知らない名前",title:"「ゆうくん」って誰？",desc:"会話の中で、みおが知らない人の話をする。",chat:[["them","今日ゆうくんにおすすめのカフェ教えてもらった！"]],c:[
+["「へえ、どんなとこ？」","駅前のとこ！今度一緒に行こ",{trust:4,dep:-1,anx:-3,bound:3}],
+["「ゆうくんって誰？」","バイト先の友達だよ。気になる？",{trust:1,dep:2,anx:3,bound:0}],
+["「男？」と詰めて聞く","男だけど……普通に友達だよ",{trust:-5,dep:5,anx:8,bound:-6}],
+["気にしないふりをする","あ、うん。でね、カフェが……",{trust:-1,dep:2,anx:4,bound:0}]]},
+{day:"DAY 04 / オンライン",title:"オンラインなのに返事がない。",desc:"みおはオンライン表示。でもメッセージは返ってこない。考え始めると止まらない。",chat:[["system","オンライン　→　5分前にオンライン"]],c:[
+["スマホを置いて別のことをする","ごめん、スマホ見てなかった！何してた？",{trust:2,dep:-7,anx:-8,bound:6}],
+["「忙しい？」と一度だけ送る","今ちょっと作業中！あとで返すね",{trust:1,dep:1,anx:1,bound:0}],
+["連投して返事を求める","通知すごいことになってる……何かあった？",{trust:-5,dep:9,anx:8,bound:-8}],
+["オンライン状況を何度も確認する","最近、なんか不安そうだね。大丈夫？",{trust:-2,dep:7,anx:9,bound:-6}]]},
+{day:"DAY 05 / 深夜の長文",title:"送信前のメッセージ、1,248文字。",desc:"言いたいことを書き続けたら、長い文章になっていた。送信ボタンの上に指がある。",chat:[["system","下書き：1,248文字　『どうしてわかってくれないの』から始まっている……"]],c:[
+["いったん保存して明日読み返す","昨日のこと、落ち着いて話せてよかった",{trust:3,dep:-4,anx:-5,bound:5}],
+["要点をまとめて気持ちを伝える","ちゃんと伝えてくれてありがとう。私も話したい",{trust:6,dep:-1,anx:-2,bound:4}],
+["そのまま全部送る","読んだよ。今すぐ全部に返事するのは難しいかも",{trust:-4,dep:8,anx:8,bound:-5}],
+["友達に相談してみる","少し落ち着いた？いつでも話聞くよ",{trust:2,dep:-3,anx:-4,bound:5}]]},
+{day:"DAY 06 / 最後のメッセージ",title:"「少し距離を置きたい」",desc:"みおから届いた言葉。今までの選択が、二人の間に積み重なっている。",chat:[["them","少しだけ距離を置いて、自分の気持ちを整理したい"]],c:[
+["気持ちを聞き、距離を尊重する","ありがとう。ちゃんと考える時間を作ろう",{trust:7,dep:-5,anx:-3,bound:9}],
+["「いつまで？」と期限を迫る","今すぐは決められないけど、また連絡するね",{trust:-2,dep:4,anx:5,bound:-3}],
+["「絶対に離れたくない」と伝える","気持ちはわかったよ。でも今は少し休みたい",{trust:-5,dep:9,anx:8,bound:-8}],
+["自分も考える時間にすると伝える","うん、お互い落ち着いて考えよう",{trust:4,dep:-4,anx:-2,bound:7}]]}
+];
+let s,idx,locked=false;
+const $=id=>document.getElementById(id), clamp=n=>Math.max(0,Math.min(100,n));
+function bubble(type,text){let c=$("chat");if(type==="system"){let d=document.createElement("div");d.className="sys";d.textContent=text;c.append(d)}else{let r=document.createElement("div");r.className="rowmsg "+type;if(type==="them"){let a=document.createElement("div");a.className="miniavatar";a.textContent="🖤";r.append(a)}let b=document.createElement("div");b.className="bubble";b.textContent=text;r.append(b);c.append(r)}c.scrollTop=c.scrollHeight}
+function stats(){for(let [k,id] of [["trust","trust"],["dep","dep"],["anx","anx"],["bound","bound"]]){$(id+"Val").textContent=s[k];$(id+"Bar").style.width=s[k]+"%"}}
+function start(){$("intro").classList.add("hidden");$("result").classList.add("hidden");$("game").classList.remove("hidden");s={trust:60,dep:20,anx:25,bound:60};idx=0;locked=false;$("chat").innerHTML='<div class="day">10月01日</div>';bubble("them","ねえ、今日から恋人だね。なんかまだ実感ない笑");bubble("me","これからよろしくね！");bubble("them","こちらこそ！いっぱい思い出つくろうね ♡");render()}
+function render(){locked=false;let e=E[idx];$("chapter").textContent=e.day;$("progressText").textContent=idx+" / "+E.length;$("progressBar").style.width=idx/E.length*100+"%";let box=$("event");box.innerHTML="";let ch=document.createElement("div");ch.className="chapter";ch.textContent="EVENT "+(idx+1)+" / "+e.day;let h=document.createElement("h3");h.textContent=e.title;let p=document.createElement("p");p.textContent=e.desc;let choices=document.createElement("div");choices.className="choices";box.append(ch,h,p,choices);e.c.forEach((c,i)=>{let b=document.createElement("button");b.className="choice";let n=document.createElement("span");n.className="num";n.textContent="0"+(i+1);let t=document.createElement("span");t.textContent=c[0];b.append(n,t);b.onclick=()=>choose(i);choices.append(b)});stats()}
+function choose(i){if(locked)return;locked=true;let c=E[idx].c[i];bubble("me",c[0]);for(let k in c[2])s[k]=clamp(s[k]+c[2][k]);setTimeout(()=>{bubble("them",c[1]);let box=$("event");box.innerHTML="";let p=document.createElement("p");p.textContent="この選択が、二人の関係に少しだけ影響した。";let b=document.createElement("button");b.className="primary next";b.textContent=idx===E.length-1?"エンディングを見る":"次のイベントへ →";b.onclick=()=>{idx++;if(idx===E.length)finish();else{let e=E[idx];if(e.chat)e.chat.forEach(m=>bubble(m[0],m[1]));render()}};box.append(p,b);$("progressText").textContent=(idx+1)+" / "+E.length;$("progressBar").style.width=(idx+1)/E.length*100+"%";stats()},250)}
+function ending(){if(s.trust>=72&&s.bound>=65&&s.dep<45)return ["♡","END 01：ちゃんと好きでいられる","不安がゼロになったわけじゃない。それでも相手の気持ちを聞き、自分の気持ちも伝える道を選んだ。"];if(s.dep>=65&&s.bound<40)return ["🖤","END 02：既読の檻","安心したくて、もっと確かめたくなる。気づけば恋愛以外の時間まで相手の反応に支配されていた。"];if(s.anx>=65&&s.trust<48)return ["⌁","END 03：疑心暗鬼ループ","疑いが正しかったかより、二人が安心して話せる状態を失っていた。"];if(s.bound>=70&&s.dep<35)return ["✦","END 04：自分の人生も、恋愛も","好きな気持ちを大切にしながら、自分の生活も守れた。"];if(s.trust<38||s.bound<30)return ["☾","END 05：送信できなかった言葉","言いたいことはたくさんあったのに、うまく届かないまま時間が過ぎた。"];return ["…","END 06：恋愛、むずかしすぎ","正解を探すほど、相手の気持ちも自分の本音も見えにくくなった。すべてを今日決める必要はない。"]}
+function finish(){let e=ending();$("game").classList.add("hidden");$("result").classList.remove("hidden");$("icon").textContent=e[0];$("title").textContent=e[1];$("desc").textContent=e[2];$("report").innerHTML="";for(let [label,k] of [["信頼度","trust"],["依存度","dep"],["不安度","anx"],["境界線","bound"]]){let d=document.createElement("div"),sm=document.createElement("small"),b=document.createElement("b");sm.textContent=label;b.textContent=s[k]+"/100";d.append(sm,b);$("report").append(d)}$("share").textContent="地雷恋愛シミュレーター 結果\n"+e[1]+"\n信頼度："+s.trust+" / 依存度："+s.dep+" / 不安度："+s.anx+" / 境界線："+s.bound+"\nあなたはどのエンディング？";window.scrollTo({top:0,behavior:"smooth"})}
+$("start").onclick=start;$("retry").onclick=start;$("copy").onclick=async()=>{try{await navigator.clipboard.writeText($("share").textContent);$("copyStatus").textContent="コピーしました！Xに貼り付けてね。"}catch(e){let t=document.createElement("textarea");t.value=$("share").textContent;document.body.append(t);t.select();document.execCommand("copy");t.remove();$("copyStatus").textContent="結果をコピーしました！"}};
+</script>
+</body></html>
